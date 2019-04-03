@@ -76,6 +76,10 @@
 		#row3anchors{
 				color:#404040;
 		}
+		
+		.ablack{
+          color: black;		
+		}
 /* ROW3 ENDS*/
 
 /* ROW4 STARTS*/
@@ -194,6 +198,9 @@
 	border-radius: 0;
 }
 
+.widebtn{
+	width:150px"
+}
 
 /* ROW4 ENDS*/
 
@@ -245,3 +252,42 @@
 			color:white;
 		}
  /* ROW6 ENDS*/
+ 
+ /*HOME PAGE*/
+.ml
+{
+	padding: 22px;
+}
+
+.mar-left
+{
+	margin-left: 7px;
+	margin-right: 7px;
+}
+
+.prod
+{
+	border: 1px solid #ccc;
+	
+}	
+
+.prod img
+{
+	
+	height: 170px;
+}
+
+.prod1
+{
+	border: 1px solid #ccc;
+	
+}
+
+.prod1 img
+{
+	
+	height: 280px;
+	width: 100%;
+}
+
+ /*HOME PAGE*/
