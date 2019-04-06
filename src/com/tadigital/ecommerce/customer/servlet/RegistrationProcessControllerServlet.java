@@ -40,11 +40,13 @@ public class RegistrationProcessControllerServlet extends HttpServlet {
 		String[] fname = name.split(" ");
 		String fName="";
 		String lName="";
+//		fName=fname[0];
+//		lName=fname[1];
+		
 		
 		if(fname.length<2)
 		{
 			fName=fname[0];
-			lName=null;
 			customer.setFirstName(fName);
 		}
 		else {
@@ -52,24 +54,28 @@ public class RegistrationProcessControllerServlet extends HttpServlet {
 			lName=fname[1];
 			customer.setFirstName(fName);
 			customer.setLastName(lName);
+			
 		}
+		
 
+//		customer.setFirstName(fName);
+//		customer.setFirstName(lName);
 		
 		customer.setEmail(email);
 		customer.setPassword(pwd);
 		
-		CustomerService employeeService = new CustomerService();
-		boolean status = employeeService.registerCustomer(customer);
+		CustomerService customerService = new CustomerService();
+		boolean status = customerService.registerCustomer(customer);
 		if(status) {
 			req.setAttribute("FLAG", "true");
 			
-			RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
+			RequestDispatcher rd = req.getRequestDispatcher("SignInSignUp.jsp");
 			rd.forward(req, resp);
 			
 		} else {
 			req.setAttribute("FLAG", "false");
 			
-			RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
+			RequestDispatcher rd = req.getRequestDispatcher("SignInSignUp.jsp");
 			rd.forward(req, resp);
 		}
 	}
