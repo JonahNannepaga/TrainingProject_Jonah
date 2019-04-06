@@ -20,38 +20,46 @@ public class LoginProcessControllerServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher rd = req.getRequestDispatcher("RegistrationForm.html");
+		RequestDispatcher rd = req.getRequestDispatcher("#");
 		rd.forward(req, resp);
  }
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		
-		
 		String  email= req.getParameter("p1");
 		String pwd = req.getParameter("p2");
-	//	String email = req.getParameter("p4");
-	//	String password = req.getParameter("p5");
-		
+	
 		Customer customer = new Customer();
 		
 				
 		customer.setEmail(email);
 		customer.setPassword(pwd);
 		
-		CustomerService customerService = new CustomerService();
+		
+		CustomerService customerService = new CustomerService();	
+		
 		
 		boolean status = customerService.loginCustomer(customer);
+		
 		if(status) {
 			req.setAttribute("FLAG1", "t");
 			
-			RequestDispatcher rd = req.getRequestDispatcher("CustomerAccount.html");
+			
+			String name1= customer.getFirstName()+customer.getLastName();
+			String email1=customer.getEmail();
+			
+			HttpSession session=req.getSession();
+			
+			session.setAttribute("USERNAM", name1); 
+			session.setAttribute("EMAIL", email1);
+
+			RequestDispatcher rd = req.getRequestDispatcher("CustomerAccount.jsp");
 			rd.forward(req, resp);
 		} else {
 			req.setAttribute("FLAG1", "failed");
 			
-			RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
+			RequestDispatcher rd = req.getRequestDispatcher("SignInSignUp.jsp");
 		    rd.forward(req, resp);
 		}
 	}
