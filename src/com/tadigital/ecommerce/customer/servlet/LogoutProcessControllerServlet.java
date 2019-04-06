@@ -23,7 +23,7 @@ public class LogoutProcessControllerServlet extends HttpServlet {
 		ses.invalidate();
 		
 		req.setAttribute("FLAG1", "logout");
-		RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("SignInSignUp.jsp");
 		rd.forward(req, resp);
  }
 	
