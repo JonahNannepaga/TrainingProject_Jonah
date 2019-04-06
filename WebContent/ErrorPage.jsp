@@ -20,99 +20,18 @@
 		
 		 <div class="container-fluid">   <!-- PARENT CONTAINER -->
 			
-				 <!-- ROW1 Starting -->
+			<!-- ROW1 Starting -->	
 			
-					<div class="row bck ">
-			  					 <div class="col-md-1">
-									<p> </p>
-								 </div>
-					         
-								<div class="col-md-6">
-									<p class="mt" id="row1">Contact Us on +914066217777</p>
-								</div>
-				
-								<div class="col-md-1">
-									<a href="#"><h5><span class="glyphicon glyphicon-log-in"></span><b> SIGN IN</b></h5></a>
-								</div>
-				
-								<div class="col-md-1">
-									<a href="#"><h5><span class="glyphicon glyphicon-user"></span><b>SIGN UP</b></h5></a>
-								</div>
-								
-								<div class="col-md-3 mt">
-										<a href="#" id="r1color" class="btn btn-block btn-facebook"><span class="fa fa-facebook"></span></a>
-										<a href="#" id="r1color" class="btn btn-block btn-google"><span class="fa fa-google"></span></a>
-										<a href="#" id="r1color" class="btn btn-block btn-twitter"><span class="fa fa-twitter"></span></a>
-										<a href="#" id="r1color" class="btn btn-block btn-envelope"><span class="fa fa-envelope"></span></a>										
-								</div>
-					</div>
+				<%@ include file="header1.jsp" %>
 			
 			<!-- ROW1 Ending -->
 		
 		
-		    <!-- ROW 2 Starting -->
-			<div class= "row">
-				<div class="container-fluid" id="row2col1" >
-							
-				
-						<div class="col-md-4">
-							<img src="images/logo.png" id="logo">
-						</div>
-						
-						<div class="col-md-8">
-								<div class="navbar" id="nav">
-			 						<ul class="nav navbar-nav">
-			     						 <li class="dropdown">
-			       			 				<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="r2color"><b>ELECTRONICS</b>		
-			       							 <span class="caret"></span></a>
-			       			 					<ul class="dropdown-menu">
-			          								<li><a href="#">Page 1-1</a></li>
-			         		 						<li><a href="#">Page 1-2</a></li>
-			          								<li><a href="#">Page 1-3</a></li>
-			       			 						</ul>
-			      								</li>
-			      						<li class="dropdown">
-			        						<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="r2color"><b>MEN</b>
-			       							 <span class="caret"></span></a>
-			        							<ul class="dropdown-menu">
-			          								<li><a href="#">Page 1-1</a></li>
-			         	 							<li><a href="#">Page 1-2</a></li>
-			          								<li><a href="#">Page 1-3</a></li>
-			        								</ul>
-			     	 						</li>
-			      						<li class="dropdown">
-			       							 <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="r2color"><b>WOMEN</b>		
-			       							  <span class="caret"></span></a>
-			       		 						<ul class="dropdown-menu">
-			          								<li><a href="#">Page 1-1</a></li>
-			          								<li><a href="#">Page 1-2</a></li>
-			          								<li><a href="#">Page 1-3</a></li>
-			        							</ul>
-			      							</li>
-			     					 	<li class="dropdown">
-			        						<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="r2color"><b>BABY & KIDS</b>			
-			        						 <span class="caret"></span></a>
-			        							<ul class="dropdown-menu">
-			         	 							<li><a href="#">Page 1-1</a></li>
-			          								<li><a href="#">Page 1-2</a></li>
-			         	 							<li><a href="#">Page 1-3</a></li>
-			        							</ul>
-			      							</li>
-			      						<li class="dropdown">
-			        						<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="r2color"><b>HOME & FURNITURE</b>		
-			       	 						 <span class="caret"></span></a>
-			       	 							<ul class="dropdown-menu">
-			          								<li><a href="#">Page 1-1</a></li>
-			          								<li><a href="#">Page 1-2</a></li>
-			         	 							<li><a href="#">Page 1-3</a></li>
-			        							</ul>
-			      						</li>
-			    					</ul>
-								</div>
-							</div>
-					</div>
-			</div>
-		<!-- ROW2 Ending -->
+		   <!-- ROW 2 Starting -->
+		   
+				<%@ include file="header2.html" %>
+			
+		   <!-- ROW2 Ending -->
 			
 			
 	
@@ -223,25 +142,10 @@
 
 			
 			<!-- ROW6 Starting -->
-			<div class="row" id="row6">
 			
-				<div class="col-md-1">
-						<p> </p>
-				</div>
-				
-				<div class="col-md-7">
-					<br>		
-					<br>
-						<p style="color:white">&#169; 2018 TechApect Private Limited.</p>
-					
-					<br>
-					<br>
-				
-				</div>
-				
-				
-			</div>
-			<!-- ROW6 Ending -->		
+				<%@ include file="footer.html" %>
+			
+			<!-- ROW6 Ending -->			
 			
   </div>
    <!-- PARENT CONTAINER ENDING -->
