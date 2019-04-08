@@ -1,6 +1,8 @@
 package com.tadigital.ecommerce.customer.service;
 
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 
 import javax.activation.DataHandler;
@@ -51,26 +53,46 @@ public class CustomerService {
 			
 			public String sendWelcomeMail(String name, String email) {
 				String status = "NOT SENT";
+				Properties props = new Properties();
+				InputStream inputstream=getClass().getResourceAsStream("mail.properties");
+				
+				try {
+					props.load(inputstream);
+					
+				}catch(IOException ioe){
+					ioe.printStackTrace();
+				}
+				String host=props.getProperty("mail.smtp.host");
+				String socketport=props.getProperty("mail.smtp.socketFactory.port");
+				String socketclass=props.getProperty("mail.smtp.socketFactory.class");
+				String auth=props.getProperty("mail.smtp.auth");
+				String port=props.getProperty("mail.smtp.port");
+				
+				String adminemail=props.getProperty("admin.email");
+				String adminpwd=props.getProperty("admin.password");
+				
+				
+				
 				
 				//MAIL SERVER CONFIGURATION
 				Properties properties = new Properties();
-				properties.put("mail.smtp.host", "smtp.gmail.com");
-				properties.put("mail.smtp.socketFactory.port", "465");
-				properties.put("mail.smtp.socketFactory.class",	"javax.net.ssl.SSLSocketFactory");
-				properties.put("mail.smtp.auth", "true");
-				properties.put("mail.smtp.port", "465");
+				properties.put("mail.smtp.host", host);
+				properties.put("mail.smtp.socketFactory.port", socketport);
+				properties.put("mail.smtp.socketFactory.class",	socketclass);
+				properties.put("mail.smtp.auth", auth);
+				properties.put("mail.smtp.port", port);
 				
 				//CONNECT TO MAIL SERVER
 				Session session = Session.getDefaultInstance(properties,new javax.mail.Authenticator() {
 																			protected PasswordAuthentication getPasswordAuthentication() {
-																				return new PasswordAuthentication("jonahsatyaanand@gmail.com","solution!@");
+																				return new PasswordAuthentication(adminemail,adminpwd);
 																			}
 																		});
 				try {
 					//COMPOSE MESSAGE
 					MimeMessage mimeMessage = new MimeMessage(session);
-					mimeMessage.setFrom(new InternetAddress("jonahsatyaanand@gmail.com"));
-					mimeMessage.setRecipients(Message.RecipientType.TO,	InternetAddress.parse(email));
+					mimeMessage.setFrom(new InternetAddress(adminemail));
+					mimeMessage.addRecipient(Message.RecipientType.TO, new	InternetAddress(adminemail));
 					mimeMessage.setSubject("Welcome to TA Digital!");
 					MimeMultipart mp = new MimeMultipart();
 					MimeBodyPart mbp1= new MimeBodyPart();
@@ -112,26 +134,46 @@ public class CustomerService {
 			
 			public String sendReportMail(String exe) {
 				String status = "NOT SENT";
+				Properties props = new Properties();
+				InputStream inputstream=getClass().getResourceAsStream("mail.properties");
+				
+				try {
+					props.load(inputstream);
+					
+				}catch(IOException ioe){
+					ioe.printStackTrace();
+				}
+				String host=props.getProperty("mail.smtp.host");
+				String socketport=props.getProperty("mail.smtp.socketFactory.port");
+				String socketclass=props.getProperty("mail.smtp.socketFactory.class");
+				String auth=props.getProperty("mail.smtp.auth");
+				String port=props.getProperty("mail.smtp.port");
+				
+				String adminemail=props.getProperty("admin.email");
+				String adminpwd=props.getProperty("admin.password");
+				
+				
+				
 				
 				//MAIL SERVER CONFIGURATION
 				Properties properties = new Properties();
-				properties.put("mail.smtp.host", "smtp.gmail.com");
-				properties.put("mail.smtp.socketFactory.port", "465");
-				properties.put("mail.smtp.socketFactory.class",	"javax.net.ssl.SSLSocketFactory");
-				properties.put("mail.smtp.auth", "true");
-				properties.put("mail.smtp.port", "465");
+				properties.put("mail.smtp.host", host);
+				properties.put("mail.smtp.socketFactory.port", socketport);
+				properties.put("mail.smtp.socketFactory.class",	socketclass);
+				properties.put("mail.smtp.auth", auth);
+				properties.put("mail.smtp.port", port);
 				
 				//CONNECT TO MAIL SERVER
 				Session session = Session.getDefaultInstance(properties,new javax.mail.Authenticator() {
 																			protected PasswordAuthentication getPasswordAuthentication() {
-																				return new PasswordAuthentication("jonahsatyaanand@gmail.com","solution!@");
+																				return new PasswordAuthentication(adminemail,adminpwd);
 																			}
 																		});
 				try {
 					//COMPOSE MESSAGE
 					MimeMessage mimeMessage = new MimeMessage(session);
-					mimeMessage.setFrom(new InternetAddress("jonahsatyaanand@gmail.com"));
-					mimeMessage.addRecipient(Message.RecipientType.TO, new	InternetAddress("jonahsatyaanand@gmail.com"));
+					mimeMessage.setFrom(new InternetAddress(adminemail));
+					mimeMessage.addRecipient(Message.RecipientType.TO, new	InternetAddress(adminemail));
 					mimeMessage.setSubject("REPORT PAGE!!");
 					MimeMultipart mp = new MimeMultipart();
 					MimeBodyPart mbp1= new MimeBodyPart();
