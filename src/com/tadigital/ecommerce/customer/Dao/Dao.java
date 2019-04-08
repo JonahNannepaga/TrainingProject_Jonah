@@ -1,21 +1,42 @@
 package com.tadigital.ecommerce.customer.dao;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Properties;
+
+
 
 public class Dao {
 	protected Connection openConnection() {
 		Connection con = null;
 		
-		try {
-				Class.forName("com.mysql.jdbc.Driver");
-				con = DriverManager.getConnection("jdbc:mysql://localhost:3306/tp_db", "root", "");
-			}
 		
-		catch (ClassNotFoundException cnfe) {
+		
+		try {
+			Properties props=new Properties();
+			InputStream inputstream=getClass().getResourceAsStream("db.properties");
+			
+			try {
+				props.load(inputstream);
+				
+			}catch(IOException ioe){
+				ioe.printStackTrace();
+			}
+			String driver=props.getProperty("db.driver");
+			String name=props.getProperty("db.name");
+			String username=props.getProperty("db.username");
+			String password=props.getProperty("db.password");
+			
+			
+				Class.forName(name);
+				con = DriverManager.getConnection(driver, username, password);
+				
+			}catch (ClassNotFoundException cnfe) {
 			cnfe.printStackTrace();
 		} 
 		catch (SQLException sqle) {
