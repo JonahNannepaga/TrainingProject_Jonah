@@ -5,6 +5,8 @@
 	import java.sql.Statement;
 	import java.util.ArrayList;
 
+import javax.servlet.http.HttpSession;
+
 import com.tadigital.ecommerce.customer.entity.*;
 
 	public class CustomerDao extends Dao {
@@ -40,6 +42,30 @@ import com.tadigital.ecommerce.customer.entity.*;
 			return status;
 		}
 		
+		//Password updating
+		public boolean insertnewpwd(Customer customer) {
+			boolean status = false;
+	
+			Connection con = openConnection();
+			Statement stmt = openStatement(con);
+			
+			try {
+				String sql ="UPDATE customer SET pwd='"+customer.getPassword()+"'"+"WHERE email='"+customer.getEmail()+"'";
+				
+				int rows = stmt.executeUpdate(sql);
+				if(rows != 0) {
+					status = true;
+				}
+			} catch (SQLException sqle) {
+				sqle.printStackTrace();
+			} finally {
+				closeStatement(stmt);
+				closeConnection(con);
+			}
+			
+			return status;
+		}
+		
 		
 		
 		public boolean insertCustomer(Customer customer) {
@@ -48,7 +74,6 @@ import com.tadigital.ecommerce.customer.entity.*;
 			Connection con = openConnection();
 			Statement stmt = openStatement(con);
 			
-			//yaha se karna hai
 			try {
 				String sql = "INSERT INTO customer(fname, lname , email, pwd) " +
 							 "VALUES('" + customer.getFirstName() + "', '" + customer.getLastName() +
