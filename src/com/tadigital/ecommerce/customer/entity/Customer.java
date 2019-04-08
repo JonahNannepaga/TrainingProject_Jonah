@@ -17,6 +17,10 @@ public class Customer {
 			private String contactno;
 			private String email;
 			private String password;
+			private String newpwd;
+			private String newpwd1;
+			
+			
 			
 			//CONSRUCTORS
 			public Customer() {
@@ -34,6 +38,8 @@ public class Customer {
 				this.contactno = contactno;
 				this.email = email;
 				this.password = password;
+				this.newpwd= newpwd;
+				this.newpwd1=newpwd1;
 			}
 			
 			//GETTER OR ACCESSOR METHODS
@@ -53,6 +59,12 @@ public class Customer {
 			}
 			public String getPassword() {
 				return password;
+			}
+			public String getNewPassword() {
+				return newpwd;
+			}
+			public String getRetypePassword() {
+				return newpwd1;
 			}
 			
 			
@@ -74,6 +86,13 @@ public class Customer {
 			public void setPassword(String password) {
 				this.password = password;
 			}
+			public void setNewPassword(String newpwd) {
+				this.newpwd= newpwd;
+			}
+			public void setRetypePassword(String newpwd1) {
+				this.newpwd1=newpwd1;
+			}
+			
 			
 			@Override
 			public String toString() {
